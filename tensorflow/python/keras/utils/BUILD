@@ -52,7 +52,12 @@ py_library(
     name = "control_flow_util",
     srcs = ["control_flow_util.py"],
     srcs_version = "PY3",
-    deps = [],
+    deps = [
+        "//tensorflow/python:control_flow_ops",
+        "//tensorflow/python:framework_ops",
+        "//tensorflow/python:tensor_util",
+        "//tensorflow/python:variables",
+    ],
 )
 
 py_library(
@@ -106,9 +111,7 @@ py_library(
     deps = [
         ":object_identity",
         "//tensorflow/python:composite_tensor",
-        "//tensorflow/python:control_flow_ops",
         "//tensorflow/python:framework_ops",
-        "//tensorflow/python:smart_cond",
         "//tensorflow/python:tensor_shape",
         "//tensorflow/python:tensor_util",
         "//tensorflow/python:util",
@@ -265,7 +268,6 @@ py_library(
         "dataset_creator.py",
     ],
     srcs_version = "PY3",
-    visibility = ["//tensorflow/tools/pip_package:__pkg__"],
     deps = [
         "//tensorflow/python:util",
     ],
@@ -275,6 +277,9 @@ tf_py_test(
     name = "dataset_creator_test",
     srcs = ["dataset_creator_test.py"],
     python_version = "PY3",
+    tags = [
+        "no_tfrt",  # TODO(b/180537361): Reenable TFRT after the issue is resolved.
+    ],
     deps = [
         ":dataset_creator",
         "//tensorflow/python/distribute:multi_worker_test_base",

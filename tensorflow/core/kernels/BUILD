@@ -1835,6 +1835,9 @@ tf_cuda_cc_test(
     name = "fused_batch_norm_op_test",
     size = "small",
     srcs = ["fused_batch_norm_op_test.cc"],
+    tags = [
+        "nomsan",  # TODO(b/181135145), use-of-uninitialized-value in initializedLoggingWithEnvVariables
+    ],
     deps = [
         ":fused_batch_norm_op",
         ":ops_testutil",
@@ -6227,6 +6230,7 @@ filegroup(
         "stateless_random_gamma_op.cc",
         "stateless_random_ops.cc",
         "stateless_random_ops_v2.cc",
+        "string_format_op.cc",
         "string_join_op.cc",
         "string_length_op.cc",
         "string_lower_op.cc",
@@ -7233,13 +7237,6 @@ tf_kernel_library(
     name = "boosted_trees_ops",
     deps = [
         "//tensorflow/core/kernels/boosted_trees:boosted_trees_ops",
-    ],
-)
-
-tf_kernel_library(
-    name = "tensor_forest_ops",
-    deps = [
-        "//tensorflow/core/kernels/tensor_forest:tensor_forest_ops",
     ],
 )
 
