@@ -56,6 +56,8 @@ filegroup(
         "gpu_op_digamma.cc",
         "gpu_op_erf.cc",
         "gpu_op_erfc.cc",
+        "gpu_op_exp.cc",
+        "gpu_op_expm1.cc",
         "gpu_op_floor.cc",
         "gpu_op_imag.cc",
         "gpu_op_invert.cc",
@@ -69,6 +71,7 @@ filegroup(
         "gpu_op_neg.cc",
         "gpu_op_real.cc",
         "gpu_op_rsqrt.cc",
+        "gpu_op_sign.cc",
         "gpu_op_sin.cc",
         "gpu_op_sinh.cc",
         "gpu_op_sqrt.cc",
@@ -82,9 +85,6 @@ filegroup(
 filegroup(
     name = "experimental_unary_gpu_kernel_srcs",
     srcs = [
-        "gpu_op_exp.cc",
-        "gpu_op_expm1.cc",
-        "gpu_op_sign.cc",
     ],
     compatible_with = get_compatible_with_cloud(),
 )
@@ -232,7 +232,10 @@ tf_kernel_library(
 
 tf_kernel_library(
     name = "cpu_cwise_unary_op",
-    srcs = [":cpu_op_abs.cc"],
+    srcs = [
+        "cpu_op_abs.cc",
+        "cpu_op_sqrt.cc",
+    ],
     tags = ["manual"],
     # Technically we only need to depend on the kernel libraries for the
     # kernels which are enabled by default. But this would make our BUILD
@@ -242,6 +245,7 @@ tf_kernel_library(
     deps = [
         ":base_cpu_op",
         ":cpu_abs_kernels",
+        ":cpu_sqrt_kernels",
         "//third_party/eigen3",
     ],
 )
@@ -506,7 +510,8 @@ gpu_kernel_library(
         "f32",
         "f64",
     ],
-    unroll_factors = "4",
+    # May be compute-bound.
+    # unroll_factors = "4",
 )
 
 gpu_kernel_library(
@@ -587,7 +592,8 @@ gpu_kernel_library(
         "f32",
         "f64",
     ],
-    unroll_factors = "4",
+    # May be compute-bound.
+    # unroll_factors = "4",
 )
 
 gpu_kernel_library(
@@ -685,7 +691,8 @@ gpu_kernel_library(
         "f32",
         "f64",
     ],
-    unroll_factors = "4",
+    # May be compute-bound.
+    # unroll_factors = "4",
 )
 
 [
@@ -1056,6 +1063,18 @@ cpu_kernel_library(
         "i16",
         "i32",
         "i64",
+    ],
+    unroll_factors = "4",
+)
+
+cpu_kernel_library(
+    name = "cpu_sqrt_lib",
+    op = "sqrt",
+    tile_size = "256",
+    types = [
+        "f16",
+        "f32",
+        "f64",
     ],
     unroll_factors = "4",
 )
