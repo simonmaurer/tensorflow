@@ -130,8 +130,8 @@ def _tf_repositories():
         sha256 = "c926cf0fd6427dd5d209297f56b809c2dac30da0d2f5c812b7106bb9a22c8355",
         strip_prefix = "XNNPACK-6d3e1c94a906369c4e29a6564da03d033741b11d",
         urls = [
-            "https://github.com/simonmaurer/XNNPACK/archive/6d3e1c94a906369c4e29a6564da03d033741b11d.zip",
             "https://storage.googleapis.com/mirror.tensorflow.org/github.com/simonmaurer/XNNPACK/archive/6d3e1c94a906369c4e29a6564da03d033741b11d.zip",
+            "https://github.com/simonmaurer/XNNPACK/archive/6d3e1c94a906369c4e29a6564da03d033741b11d.zip",
         ],
     )
 
