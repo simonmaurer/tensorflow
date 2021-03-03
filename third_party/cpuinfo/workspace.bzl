@@ -12,5 +12,4 @@ def repo():
             "https://github.com/pytorch/cpuinfo/archive/5916273f79a21551890fd3d56fc5375a78d1598d.zip",
         ],
         build_file = "//third_party/cpuinfo:BUILD.bazel",
-        patch_file = "//third_party/cpuinfo:cpuinfo.patch",
     )
