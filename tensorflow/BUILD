@@ -456,7 +456,7 @@ config_setting(
         "framework_shared_object": "true",
     },
     values = {
-        "apple_platform_type": "macos",
+        "apple_platform_type": "ios",
         "cpu": "darwin_arm64",
     },
     visibility = ["//visibility:public"],
