@@ -127,11 +127,11 @@ def _tf_repositories():
     # and update the sha256 with the result.
     tf_http_archive(
         name = "XNNPACK",
-        sha256 = "59ccf0c1c64899b511f8872a278e54c293970f57933b056492a364aa5ac709ec",
-        strip_prefix = "XNNPACK-094e692629d57ddb932fcc993193626f60daa61b",
+        sha256 = "92df44f0a328ff4397d56405394df74f704b48b289d9f3288cf61519c6cd360c",
+        strip_prefix = "XNNPACK-3b403c29c1a01e62d57657aa20143dabe25fb16b",
         urls = [
-            "https://storage.googleapis.com/mirror.tensorflow.org/github.com/google/XNNPACK/archive/094e692629d57ddb932fcc993193626f60daa61b.zip",
-            "https://github.com/google/XNNPACK/archive/094e692629d57ddb932fcc993193626f60daa61b.zip",
+            "https://storage.googleapis.com/mirror.tensorflow.org/github.com/simonmaurer/XNNPACK/archive/3b403c29c1a01e62d57657aa20143dabe25fb16b.zip",
+            "https://github.com/simonmaurer/XNNPACK/archive/3b403c29c1a01e62d57657aa20143dabe25fb16b.zip",
         ],
     )
 
@@ -147,11 +147,11 @@ def _tf_repositories():
 
     tf_http_archive(
         name = "pthreadpool",
-        sha256 = "e576de3e2504018462a3ee2282c99c2d0d708f01d17cd2f71f9f1fe6d3ba8b9b",
-        strip_prefix = "pthreadpool-77f9d3bcfabd1bdb910dd33b549d5290b968ef05",
+        sha256 = "b32c784ba2c6a23ce167a9835e3c49185231d2cec79f1c4c8e29907a40f74027",
+        strip_prefix = "pthreadpool-f92ab1bbf540c3b6677101881d3ac281f57a1699",
         urls = [
-            "https://storage.googleapis.com/mirror.tensorflow.org/github.com/Maratyszcza/pthreadpool/archive/77f9d3bcfabd1bdb910dd33b549d5290b968ef05.zip",
-            "https://github.com/Maratyszcza/pthreadpool/archive/77f9d3bcfabd1bdb910dd33b549d5290b968ef05.zip",
+            "https://storage.googleapis.com/mirror.tensorflow.org/github.com/simonmaurer/pthreadpool/archive/f92ab1bbf540c3b6677101881d3ac281f57a1699.zip",
+            "https://github.com/simonmaurer/pthreadpool/archive/f92ab1bbf540c3b6677101881d3ac281f57a1699.zip",
         ],
     )
 
