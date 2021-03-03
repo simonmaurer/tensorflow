@@ -131,6 +131,7 @@ def _tf_repositories():
         strip_prefix = "XNNPACK-6d3e1c94a906369c4e29a6564da03d033741b11d",
         urls = [
             "https://github.com/simonmaurer/XNNPACK/archive/6d3e1c94a906369c4e29a6564da03d033741b11d.zip",
+            "https://storage.googleapis.com/mirror.tensorflow.org/github.com/simonmaurer/XNNPACK/archive/6d3e1c94a906369c4e29a6564da03d033741b11d.zip",
         ],
     )
 
